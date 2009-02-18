@@ -25,6 +25,15 @@ map <M-Left> <esc>:tabprevious<CR>
 noremap <C-s> <Esc>:w<CR>
 noremap <F8> :NERDTreeToggle<CR>
 
+""" Configurações para o FuzzyFinder """
+nnoremap <C-f> :FuzzyFinderTextMate<CR>
+map <leader>b :FuzzyFinderBuffer<CR>
+map <leader>] :FuzzyFinderMruFile<CR>
+map <leader>r :ruby finder.rescan!<CR>
+let g:fuzzy_ceiling=20000
+let g:fuzzy_matching_limit=25
+let g:fuzzy_ignore = "gems/*, log/*"
+
 """ Configurações do Ruby """
 augroup rubyfiletype
   autocmd!
@@ -43,6 +52,15 @@ augroup pythonfiletype
   autocmd FileType python set ai sw=2 sts=2 et
   set tags+=$HOME/.vim/tags/python.ctags
 augroup END
+
+""" Configurações do Erlang """
+augroup erlangfiletype
+  autocmd!
+  autocmd FileType erlang set omnifunc=erlangcomplete#Complete
+  autocmd FileType erlang set ai sw=2 sts=2 et
+  set tags+=$HOME/.vim/tags/erlang.ctags
+augroup END
+
 
 """ Configurações para Gvim """
 if has("gui_running")
