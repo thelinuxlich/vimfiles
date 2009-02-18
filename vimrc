@@ -7,14 +7,15 @@ set statusline=%<%f\ %h%m%r\ [%Y]\ [GIT:%{GitBranchInfoTokens()[0]}]%=%-10([line
 set laststatus=2
 syntax on
 set nu
+filetype plugin indent on
 set ruler
 set nowrap
 
 """ Completação de Codigo """
-"let g:SuperTabDefaultCompletionType = "<C><Space>"
+inoremap <Nul> <C-x><C-o>
 
 """ Configurações do Color Schema """
-"colorscheme desert
+colorscheme desert
 
 """ Mapeamento """
 noremap <C-v><C-r> <esc>:source ~/.vimrc<CR>
@@ -25,15 +26,23 @@ noremap <C-s> <Esc>:w<CR>
 noremap <F8> :NERDTreeToggle<CR>
 
 """ Configurações do Ruby """
-augroup rubyfiletype
+augroup ruby
   autocmd!
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+  set tags+=$HOME/.vim/tags/python.ctags
 augroup END
 
+""" Configurações do Python """
+augroup python
+  autocmd!
+  autocmd FileType python set omnifunc=pythoncomplete#Complete
+  autocmd FileType python set ai sw=2 sts=2 et
+  set tags+=$HOME/.vim/tags/python.ctags
+augroup END
 """ Configurações para Gvim """
 if has("gui_running")
   set guifont="Bitstream Vera Sans Mono":h11
