@@ -67,6 +67,13 @@ augroup erlangfiletype
   set tags+=$HOME/.vim/tags/erlang.ctags
 augroup END
 
+""" Configurações para PHP
+augroup phpfiletype
+  autocmd!
+  autocmd FileType php set omnifunc=phpcomplete#Complete
+  autocmd FileType php set ai sw=2 sts=2 et
+  set tags+=$HOME/.vim/tags/php.ctags
+augroup END
 
 """ Configurações para Gvim """
 if has("gui_running")
