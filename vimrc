@@ -11,11 +11,11 @@ filetype plugin indent on
 set ruler
 set nowrap
 
-""" Completação de Codigo """
+""" Completação de Codigo
 inoremap <Nul> <C-x><C-o>
 
-""" Configurações do Color Schema """
-colorscheme desert
+""" Configurações do Color Schema
+colorscheme vividchalk
 
 """ Mapeamento """
 noremap <C-v><C-r> <esc>:source ~/.vimrc<CR>
@@ -30,11 +30,12 @@ nnoremap <C-f> :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
 map <leader>] :FuzzyFinderMruFile<CR>
 map <leader>r :ruby finder.rescan!<CR>
+let g:proj_flags="imstg"
 let g:fuzzy_ceiling=20000
 let g:fuzzy_matching_limit=25
 let g:fuzzy_ignore = "gems/*, log/*"
 
-""" Configurações do Ruby """
+""" Configurações do Ruby 
 augroup rubyfiletype
   autocmd!
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -45,7 +46,12 @@ augroup rubyfiletype
   set tags+=$HOME/.vim/tags/ruby.ctags
 augroup END
 
-""" Configurações do Python """
+""" Configurações do Rails.vim
+augroup rails
+  let g:rails_default_file='config/database.yml'
+augroup END
+
+""" Configurações do Python 
 augroup pythonfiletype
   autocmd!
   autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -64,6 +70,7 @@ augroup END
 
 """ Configurações para Gvim """
 if has("gui_running")
+  set t_Co=256
   set guifont="Bitstream Vera Sans Mono":h11
   set guitablabel=%M%t
   set guioptions-=m
