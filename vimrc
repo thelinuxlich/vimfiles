@@ -26,23 +26,24 @@ noremap <C-s> <Esc>:w<CR>
 noremap <F8> :NERDTreeToggle<CR>
 
 """ Configurações do Ruby """
-augroup ruby
+augroup rubyfiletype
   autocmd!
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
   autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-  set tags+=$HOME/.vim/tags/python.ctags
+  set tags+=$HOME/.vim/tags/ruby.ctags
 augroup END
 
 """ Configurações do Python """
-augroup python
+augroup pythonfiletype
   autocmd!
   autocmd FileType python set omnifunc=pythoncomplete#Complete
   autocmd FileType python set ai sw=2 sts=2 et
   set tags+=$HOME/.vim/tags/python.ctags
 augroup END
+
 """ Configurações para Gvim """
 if has("gui_running")
   set guifont="Bitstream Vera Sans Mono":h11
