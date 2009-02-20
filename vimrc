@@ -1,4 +1,4 @@
-""" Configurações Gerais """
+""" Configurações Gerais
 set nocompatible
 set nobackup
 set nowritebackup
@@ -17,7 +17,7 @@ inoremap <Nul> <C-x><C-o>
 """ Configurações do Color Schema
 colorscheme vividchalk
 
-""" Mapeamento """
+""" Mapeamento
 noremap <C-v><C-r> <esc>:source ~/.vimrc<CR>
 noremap <C-v><C-s> <esc>:mksession! ~/.vim/.session<CR>
 map <M-Right> <esc>:tabnext<CR>
@@ -25,7 +25,7 @@ map <M-Left> <esc>:tabprevious<CR>
 noremap <C-s> <Esc>:w<CR>
 noremap <F8> :NERDTreeToggle<CR>
 
-""" Configurações para o FuzzyFinder """
+""" Configurações para o FuzzyFinder
 nnoremap <C-f> :FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
 map <leader>] :FuzzyFinderMruFile<CR>
@@ -59,12 +59,12 @@ augroup pythonfiletype
   set tags+=$HOME/.vim/tags/python.ctags
 augroup END
 
-""" Configurações do Erlang """
+""" Configurações do Erlang
 augroup erlangfiletype
   autocmd!
   autocmd FileType erlang set omnifunc=erlangcomplete#Complete
   autocmd FileType erlang set ai sw=2 sts=2 et
-  set tags+=$HOME/.vim/tags/erlang.ctags
+  g:erlangCompiler="erlc"
 augroup END
 
 """ Configurações para PHP
