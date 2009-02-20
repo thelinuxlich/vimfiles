@@ -64,7 +64,7 @@ augroup erlangfiletype
   autocmd!
   autocmd FileType erlang set omnifunc=erlangcomplete#Complete
   autocmd FileType erlang set ai sw=2 sts=2 et
-  g:erlangCompiler="erlc"
+  let g:erlangCompiler="erlc"
 augroup END
 
 """ Configurações para PHP
