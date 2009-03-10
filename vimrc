@@ -22,7 +22,7 @@ noremap <C-v><C-r> <esc>:source ~/.vimrc<CR>
 noremap <C-v><C-s> <esc>:mksession! ~/.vim/.session<CR>
 map <M-Right> <esc>:tabnext<CR>
 map <M-Left> <esc>:tabprevious<CR>
-noremap <C-s> <Esc>:w<CR>
+noremap <C-s> <esc>:w<CR>
 noremap <F8> :NERDTreeToggle<CR>
 
 """ Configurações para o FuzzyFinder
