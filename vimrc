@@ -10,6 +10,7 @@ set nu
 filetype plugin indent on
 set ruler
 set nowrap
+set backspace=indent,eol,start
 
 """ Completação de Codigo
 inoremap <Nul> <C-x><C-o>
@@ -22,11 +23,14 @@ noremap <C-v><C-r> <esc>:source ~/.vimrc<CR>
 noremap <C-v><C-s> <esc>:mksession! ~/.vim/.session<CR>
 map <M-Right> <esc>:tabnext<CR>
 map <M-Left> <esc>:tabprevious<CR>
-noremap <C-s> <esc>:w<CR>
+noremap <C-s> :w<CR>
+inoremap <C-s> <esc>:w<CR>i
 noremap <F8> :NERDTreeToggle<CR>
+inoremap <F8> <esc>:NERDTreeToggle<CR>
 
 """ Configurações para o FuzzyFinder
 nnoremap <C-f> :FuzzyFinderTextMate<CR>
+inoremap <C-f> <esc>:FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
 map <leader>] :FuzzyFinderMruFile<CR>
 map <leader>r :ruby finder.rescan!<CR>
