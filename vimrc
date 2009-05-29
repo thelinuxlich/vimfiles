@@ -27,6 +27,7 @@ noremap <C-s> :w<CR>
 inoremap <C-s> <esc>:w<CR>i
 noremap <F8> :NERDTreeToggle<CR>
 inoremap <F8> <esc>:NERDTreeToggle<CR>
+map <F7> :TlistToggle<CR>
 
 """ Configurações para o FuzzyFinder
 nnoremap <C-f> :FuzzyFinderTextMate<CR>
@@ -59,7 +60,7 @@ augroup END
 augroup pythonfiletype
   autocmd!
   autocmd FileType python set omnifunc=pythoncomplete#Complete
-  autocmd FileType python set ai sw=2 sts=2 et
+  autocmd FileType python set ai sw=4 sts=4 et
   set tags+=$HOME/.vim/tags/python.ctags
 augroup END
 
@@ -79,7 +80,7 @@ augroup phpfiletype
   set tags+=$HOME/.vim/tags/php.ctags
 augroup END
 
-""" Configurações para Gvim """
+""" Configurações para Gvim
 if has("gui_running")
   set t_Co=256
   set guifont="Bitstream Vera Sans Mono":h11
@@ -90,3 +91,10 @@ if has("gui_running")
   set columns=115
   set mousehide  " Hide mouse after chars typed
 endif
+
+""" TagList
+let Tlist_Ctags_Cmd='/usr/bin/ctags' " point taglist to ctags
+let Tlist_GainFocus_On_ToggleOpen = 1 " Focus on the taglist when its toggled
+let Tlist_Close_On_Select = 1 " Close when something's selected
+let Tlist_Use_Right_Window = 1 " Project uses the left window
+let Tlist_File_Fold_Auto_Close = 1 " Close folds for inactive files
