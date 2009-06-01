@@ -14,6 +14,8 @@ set backspace=indent,eol,start
 
 """ Completação de Codigo
 inoremap <Nul> <C-x><C-o>
+inoremap <C-Space> <C-p>
+inoremap <C-\> <C-x><C-o>
 
 """ Configurações do Color Schema
 colorscheme vividchalk
@@ -75,7 +77,7 @@ augroup END
 """ Configurações para PHP
 augroup phpfiletype
   autocmd!
-  autocmd FileType php set omnifunc=phpcomplete#Complete
+  autocmd FileType php set omnifunc=phpcomplete#CompletePHP
   autocmd FileType php set ai sw=2 sts=2 et
   set tags+=$HOME/.vim/tags/php.ctags
 augroup END
