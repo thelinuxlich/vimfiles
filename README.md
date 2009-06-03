@@ -5,7 +5,7 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 ### Instalação
 
 cd ~
-rm -rf .vim  # pq a sua config atual é uma merda XD
+rm -rf .vim  (pq a sua config atual é uma merda XD)
 git clone git://github.com/ramon/vimfiles.git .vim
 ln -s .vim/vimrc .vimrc
 cd .vim
