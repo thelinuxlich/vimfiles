@@ -1,13 +1,13 @@
 """ Configurações Gerais
 set nocompatible
-set nobackup
-set nowritebackup
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 set statusline=%<%f\ %h%m%r\ [%Y]\ [GIT:%{GitBranchInfoTokens()[0]}]%=%-10([line/total\ %l/%L,\ col\ %c%V]%)%=%-10(%)\ %P
 set laststatus=2
 syntax on
 set nu
-filetype plugin indent on
+filetype on
+filetype plugin on
+filetype indent on
 set ruler
 set nowrap
 set backspace=indent,eol,start
@@ -82,6 +82,11 @@ augroup phpfiletype
   set tags+=$HOME/.vim/tags/php.ctags
 augroup END
 
+augroup htmlfiletype
+  autocmd!
+  autocmd FileType html,xhtml set ai sw=4 sts=4 et
+augroup END
+
 """ Configurações para Gvim
 if has("gui_running")
   set t_Co=256
@@ -100,3 +105,11 @@ let Tlist_GainFocus_On_ToggleOpen = 1 " Focus on the taglist when its toggled
 let Tlist_Close_On_Select = 1 " Close when something's selected
 let Tlist_Use_Right_Window = 1 " Project uses the left window
 let Tlist_File_Fold_Auto_Close = 1 " Close folds for inactive files
+
+""" Files/Backups
+set nobackup
+set nowritebackup
+set backupdir=./.backup,~/.backup,.,/tmp
+set directory=.,~/tmp,/var/tmp,/tmp
+set makeef=make.err
+
