@@ -18,7 +18,8 @@ inoremap <C-Space> <C-p>
 inoremap <C-\> <C-x><C-o>
 
 """ Configurações do Color Schema
-colorscheme vividchalk
+set background=dark
+colorscheme jellybeans 
 
 """ Mapeamento
 noremap <C-v><C-r> <esc>:source ~/.vimrc<CR>
@@ -84,7 +85,7 @@ augroup END
 
 augroup htmlfiletype
   autocmd!
-  autocmd FileType html,xhtml set ai sw=4 sts=4 et
+  autocmd FileType html,xhtml set ai sw=2 sts=2 et
 augroup END
 
 """ Configurações para Gvim
