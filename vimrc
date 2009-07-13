@@ -28,20 +28,24 @@ map <M-Right> <esc>:tabnext<CR>
 map <M-Left> <esc>:tabprevious<CR>
 noremap <C-s> :w<CR>
 inoremap <C-s> <esc>:w<CR>i
-noremap <F8> :NERDTreeToggle<CR>
-inoremap <F8> <esc>:NERDTreeToggle<CR>
-map <F7> :TlistToggle<CR>
+noremap <F2> :NERDTreeToggle<CR>
+inoremap <F2> <esc>:NERDTreeToggle<CR>
+map <F3> :TlistToggle<CR>
 
 """ Configurações para o FuzzyFinder
-nnoremap <C-f> :FuzzyFinderTextMate<CR>
-inoremap <C-f> <esc>:FuzzyFinderTextMate<CR>
+nnoremap <F5> :FuzzyFinderTextMate<CR>
+inoremap <F5> <esc>:FuzzyFinderTextMate<CR>
 map <leader>b :FuzzyFinderBuffer<CR>
 map <leader>] :FuzzyFinderMruFile<CR>
 map <leader>r :ruby finder.rescan!<CR>
 let g:proj_flags="imstg"
 let g:fuzzy_ceiling=20000
 let g:fuzzy_matching_limit=25
-let g:fuzzy_ignore = "gems/*, log/*"
+let g:fuzzy_ignore = "gems/*, log/* tmp/*"
+
+""" Configuração do Scratch
+let g:scratch_file="~/.vim/scratch"
+map <F4> :ToggleScratch<CR>
 
 """ Configurações do Ruby 
 augroup rubyfiletype
@@ -63,7 +67,7 @@ augroup END
 augroup pythonfiletype
   autocmd!
   autocmd FileType python set omnifunc=pythoncomplete#Complete
-  autocmd FileType python set ai sw=4 sts=4 et
+  autocmd FileType python set ai sw=4 st=4 et
   set tags+=$HOME/.vim/tags/python.ctags
 augroup END
 
@@ -71,7 +75,7 @@ augroup END
 augroup erlangfiletype
   autocmd!
   autocmd FileType erlang set omnifunc=erlangcomplete#Complete
-  autocmd FileType erlang set ai sw=2 sts=2 et
+  autocmd FileType erlang set ai sw=2 st=2 et
   let g:erlangCompiler="erlc"
 augroup END
 
@@ -79,13 +83,13 @@ augroup END
 augroup phpfiletype
   autocmd!
   autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-  autocmd FileType php set ai sw=2 sts=2 et
+  autocmd FileType php set ai sw=2 st=2 et
   set tags+=$HOME/.vim/tags/php.ctags
 augroup END
 
 augroup htmlfiletype
   autocmd!
-  autocmd FileType html,xhtml set ai sw=2 sts=2 et
+  autocmd FileType html,xhtml set ai sw=2 st=2 et
 augroup END
 
 """ Configurações para Gvim

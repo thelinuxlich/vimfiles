@@ -11,7 +11,7 @@ syn case match
 syn sync minlines=20
 
 let g:cucumber_langauges = {
-      \"en": {"and": "And", "but": "But", "feature": "Feature", "given": "Given", "given_scenario": "GivenScenario", "more_examples": "More Examples", "examples": "Examples", "scenario": "Scenario", "scenario_outline": "Scenario Outline", "then": "Then", "when": "When"},
+      \"en": {"and": "And", "but": "But", "feature": "Feature", "given": "Given", "given_scenario": "GivenScenario", "more_examples": "More Examples", "scenario": "Scenario", "then": "Then", "when": "When"},
       \"ar": {"and": "\u0648", "but": "\u0644\u0643\u0646", "feature": "\u062e\u0627\u0635\u064a\u0629", "given": "\u0628\u0641\u0631\u0636", "given_scenario": "\u0628\u0641\u0631\u0636 \u0633\u064a\u0646\u0627\u0631\u064a\u0648 \u0645\u0639\u064a\u0646", "more_examples": "\u0627\u0645\u062b\u0644\u0629 \u0627\u0643\u062b\u0631", "scenario": "\u0633\u064a\u0646\u0627\u0631\u064a\u0648", "then": "\u0627\u0630\u0627\u064b", "when": "\u0645\u062a\u0649"},
       \"cy": {"and": "A", "but": "Ond", "feature": "Arwedd", "given": "anrhegedig a", "given_scenario": "Anrhegedig scenario", "more_examples": "Hychwaneg enghreifftiau", "scenario": "Scenario", "then": "Yna", "when": "Pryd"},
       \"da": {"and": "Og", "but": "Men", "feature": "Egenskab", "given": "Givet", "given_scenario": "GivetScenarie", "scenario": "Scenarie", "then": "S\u00e5", "when": "N\u00e5r"},
@@ -53,10 +53,8 @@ syn match   cucumberComment  "\%(^\s*\)\@<=#.*"
 
 exe 'syn match cucumberFeature "\%(^\s*\)\@<='.s:pattern('feature').':"'
 exe 'syn match cucumberScenario "\%(^\s*\)\@<='.s:pattern('scenario').':"'
-exe 'syn match cucumberScenarioOutline "\%(^\s*\)\@<='.s:pattern('scenario_outline').':"'
 exe 'syn match cucumberScenarioGiven "\%(^\s*\)\@<='.s:pattern('given_scenario').':"'
 exe 'syn match cucumberMoreExamples "\%(^\s*\)\@<='.s:pattern('more_examples').':" nextgroup=cucumberExampleTable skipnl skipwhite'
-exe 'syn match cucumberExamples "\%(^\s*\)\@<='.s:pattern('examples').':" nextgroup=cucumberExampleTable skipnl skipwhite'
 
 syn match   cucumberExampleTable  "\%(^\s*\)\@<=|.*" contains=cucumberDelimiter
 syn match   cucumberDelimiter     "|" contained
@@ -70,8 +68,6 @@ hi def link cucumberComment           Comment
 hi def link cucumberFeature           Macro
 hi def link cucumberScenarioGiven     Include
 hi def link cucumberScenario          Define
-hi def link cucumberScenarioOutline   Define
-hi def link cucumberExamples          Define
 hi def link cucumberMoreExamples      Define
 hi def link cucumberDelimiter         Delimiter
 hi def link cucumberString            String
