@@ -32,18 +32,21 @@ map <leader>e :e! ~/.vimrc<cr>
 "Se o vimrc for editado, recarregar ele
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
+" Session Options
+set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Cores e Fontes
 """"""""""""""""""""""""""""""""""""""""""""""""""""
-"Habilita a sintax highlight
+"Habilita a syntax highlight
 syntax enable
 
 "Configura a font
 set gfn=Monospace\11
 
 if has("gui_running")
-  set guioptions-=Tm
+  set guioptions-=T
+  set guioptions-=m
   colorscheme jellybeans
   set gfn="Bitstream Vera Sans Mono":h11
 else
@@ -129,7 +132,6 @@ set laststatus=2
 set statusline=%<%f\ %h%m%r\ [%Y]\ [GIT:%{GitBranchInfoTokens()[0]}]%=%-10([line/total\ %l/%L,\ col\ %c%V]%)%=%-10(%)\ %P
 
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -171,7 +173,7 @@ map <tab> :tabnext<cr>
 map <d-tab> :tabprevious<cr>
 try
   set switchbuf=usetab
-  set stal=2
+  set stal=1
 catch
 endtry
 
@@ -317,7 +319,6 @@ map <leader>s? z=
     autocmd FileType erlang set ai sw=2 st=2 et
     let g:erlangCompiler="erlc"
    
-
     """"""""""""""""""""""""""""
     " PHP  
     """"""""""""""""""""""""""""
@@ -331,11 +332,8 @@ map <leader>s? z=
     autocmd FileType html,xhtml set ai sw=4 st=4 ts=4et
     
 
-   "" Completação de Codigo
 
-
-
-
+"" Completação de Codigo
 map <Nul> <C-x><C-o>
 map <C-Space> <C-p>
 map <C-\> <C-x><C-o>
