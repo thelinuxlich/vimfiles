@@ -225,7 +225,7 @@ set tw=500
    set cindent
    
    "Wrap lines
-   set wrap
+   set nowrap
    
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spell checking
@@ -299,7 +299,7 @@ map <leader>s? z=
     " Ruby  
     """"""""""""""""""""""""""""
     autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-    autocmd FileType ruby,eruby,yaml set ai sw=2 st=2 et
+    autocmd FileType ruby,eruby,yaml set ai sw=2 st=2 ts=2 et
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_rails = 1
     let g:rubycomplete_classes_in_global = 1
@@ -309,34 +309,26 @@ map <leader>s? z=
     " Python  
     """"""""""""""""""""""""""""
     autocmd FileType python set omnifunc=pythoncomplete#Complete
-    autocmd FileType python set ai sw=4 st=4 et
+    autocmd FileType python set ai sw=4 st=4 ts=4 et
     set tags+=$HOME/.vim/tags/python.ctags
 
     """"""""""""""""""""""""""""
     " Erlang  
     """"""""""""""""""""""""""""
     autocmd FileType erlang set omnifunc=erlangcomplete#Complete
-    autocmd FileType erlang set ai sw=2 st=2 et
+    autocmd FileType erlang set ai sw=2 st=2 ts=2 et
     let g:erlangCompiler="erlc"
    
     """"""""""""""""""""""""""""
     " PHP  
     """"""""""""""""""""""""""""
     autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-    autocmd FileType php set ai sw=4 st=4 ts=4 et
+    autocmd FileType php set ai sw=4 st=4 ts=4 ts=4 et
     set tags+=$HOME/.vim/tags/php.ctags
    
     """"""""""""""""""""""""""""
     " HTML  
     """"""""""""""""""""""""""""
-    autocmd FileType html,xhtml set ai sw=4 st=4 ts=4et
+    autocmd FileType html,xhtml set ai sw=4 st=4 ts=4 et
     
-
-
-"" Completação de Codigo
-map <Nul> <C-x><C-o>
-map <C-Space> <C-p>
-map <C-\> <C-x><C-o>
-
-
 
