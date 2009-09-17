@@ -330,5 +330,10 @@ map <leader>s? z=
     " HTML  
     """"""""""""""""""""""""""""
     autocmd FileType html,xhtml set ai sw=4 st=4 ts=4 et
-    
+
+    """""""""""""""""""""""""""
+    " Markdown
+    """""""""""""""""""""""""""
+    au! BufRead,BufNewFile *.mkd   setfiletype mkd
+    autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
 
