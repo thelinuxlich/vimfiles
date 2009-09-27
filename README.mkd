@@ -8,23 +8,27 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 	cd ~
 	rm -rf .vim  (pq a sua config atual é uma merda XD)
 	git clone git://github.com/ramon/vimfiles.git .vim
+        cp .vim/vimrc.example .vim/vimrc
+        vim .vim/vimrc (revise o arquivo, algumas configurações requerem sua atenção)
 	ln -s .vim/vimrc .vimrc
 	cd .vim
 	git submodule update --init
 
 ### Linguagens atualmente suportadas
 
-* Ruby (Rails)
+* Ruby (On Rails)
 * Erlang
-* Python (django)
-* PHP
+* Python (Django)
+* PHP (Precisa ser melhorado. Alguem quer fazer isso?
 
 ### Atalhos
 
 	CTRL+S          	Salvar
-	CTRL+Space ou CTRL+P 	Autocompleta baseado no ctags
-	CTRL+\ ou CTRL+X+P	Autocompleta baseado nos arquivos abertos
-	F7			Abre o sidebar do taglist (tipo um class browser)
+	F2                      Abre/Fecha o File Browser
+        F3                      Finder (FuzzyFinder)
+        F4                      Buffer Explorer
+        F5                      Class Browser (TagList)
+        F6                      Scratch ("Arquivo temporario", tudo nele sera apagado quando fecha o vim)
 	F8			Abre o file browser
 
 ## Colaboradores
