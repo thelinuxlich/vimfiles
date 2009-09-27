@@ -25,6 +25,8 @@ if !exists("b:eruby_subtype") && main_syntax == 'eruby'
   endif
   if b:eruby_subtype == 'rhtml'
     let b:eruby_subtype = 'html'
+  elseif b:eruby_subtype == 'fbml'
+    let b:eruby_subtype = 'html'
   elseif b:eruby_subtype == 'rb'
     let b:eruby_subtype = 'ruby'
   elseif b:eruby_subtype == 'yml'
