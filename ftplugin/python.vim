@@ -1,4 +1,5 @@
 python << EOF
+import vim
 def SetBreakpoint():
     import re
     nLine = int( vim.eval( 'line(".")'))
@@ -17,7 +18,7 @@ def SetBreakpoint():
         vim.current.buffer.append( 'import pdb', 0)
         vim.command( 'normal j1')
 
-vim.command( 'map <f7> :py SetBreakpoint()<cr>')
+vim.command( 'map <f7> :python SetBreakpoint()<cr>')
 
 def RemoveBreakpoints():
     import re
@@ -41,7 +42,7 @@ def RemoveBreakpoints():
 
     vim.command( 'normal %dG' % nCurrentLine)
 
-vim.command( 'map <s-f7> :py RemoveBreakpoints()<cr>')
+vim.command( 'map <s-f7> :python RemoveBreakpoints()<cr>')
 EOF
 
 set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
