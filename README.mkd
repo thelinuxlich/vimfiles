@@ -5,14 +5,14 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 
 ### Instalação
 
-  cd ~
-  rm -rf .vim  (pq a sua config atual é uma merda XD)
-  git clone git://github.com/ramon/vimfiles.git .vim
-  cp .vim/vimrc.example .vim/vimrc
-  vim .vim/vimrc (revise o arquivo, algumas configurações requerem sua atenção)
-  ln -s .vim/vimrc .vimrc
-  cd .vim
-  git submodule update --init
+  # cd ~
+  # rm -rf .vim  (pq a sua config atual é uma merda XD)
+  # git clone git://github.com/ramon/vimfiles.git .vim
+  # cp .vim/vimrc.example .vim/vimrc
+  # vim .vim/vimrc (revise o arquivo, algumas configurações requerem sua atenção)
+  # ln -s .vim/vimrc .vimrc
+  # cd .vim
+  # git submodule update --init
 
 ### Linguagens atualmente suportadas
 
