@@ -288,9 +288,14 @@ map <leader>s? z=
     """"""""""""""""""""""""""""
     " Gist
     """"""""""""""""""""""""""""
-    let g:github_user = 'ramon'
-    let g:github_token = '123456123456123456123456123456123456123456123456123456123456123456123456'
+    let g:github_user = ''
+    let g:github_token = ''
     let g:gist_browser_command = 'firefox %URL%'
+
+    """"""""""""""""""""""""""""
+    " Sparkup
+    """"""""""""""""""""""""""""
+    let g:sparkup = "~/.vim/bin/sparkup"
  
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
