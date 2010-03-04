@@ -5,14 +5,14 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 
 ### Instalação
 
-  # cd ~
-  # rm -rf .vim  (pq a sua config atual é uma merda XD)
-  # git clone git://github.com/ramon/vimfiles.git .vim
-  # cp .vim/vimrc.example .vim/vimrc
-  # vim .vim/vimrc (revise o arquivo, algumas configurações requerem sua atenção)
-  # ln -s .vim/vimrc .vimrc
-  # cd .vim
-  # git submodule update --init
+    # cd ~
+    # rm -rf .vim  (pq a sua config atual é uma merda XD)
+    # git clone git://github.com/ramon/vimfiles.git .vim
+    # cp .vim/vimrc.example .vim/vimrc
+    # vim .vim/vimrc (revise o arquivo, algumas configurações requerem sua atenção)
+    # ln -s .vim/vimrc .vimrc
+    # cd .vim
+    # git submodule update --init
 
 ### Linguagens atualmente suportadas
 
@@ -21,13 +21,26 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 * Python (Django)
 * PHP (Precisa ser melhorado. Alguem quer fazer isso?
 
+### Plugins Utilizados
+
+* tpope / vim-rails             (Last Update: 03/03/2010)
+* tpope / vim-markdown          (Last Update: 03/03/2010)
+* tpope / vim-ragtag            (Last Update: 03/03/2010)
+* tpope / vim-fugitive          (Last Update: 03/03/2010)
+* tpope / vim-git               (Last Update: 03/03/2010)
+* tpope / vim-cucumber          (Last Update: 03/03/2010)
+* tpope / vim-endwise           (Last Update: 03/03/2010)
+* tpope / vim-haml              (Last Update: 03/03/2010)
+* tpope / vim-repeat            (Last Update: 03/03/2010)
+* tpope / vim-surround          (Last Update: 03/03/2010)
+
+
 ### Atalhos
 
-  F2                      Abre/Fecha o File Browser
-  F3                      Finder (FuzzyFinder)
-  F4                      Buffer Explorer
-  F5                      Class Browser (TagList)
-  F6                      Scratch ("Arquivo temporario", tudo nele sera apagado quando fecha o vim)
+* F2                      Abre/Fecha o File Browser
+* F3                      Class Browser (TagList)
+* F4                      Buffer Explorer
+* F5                      Scratch ("Arquivo temporario", tudo nele sera apagado quando fecha o vim)
 
 ## Colaboradores
 

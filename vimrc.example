@@ -316,6 +316,7 @@ map <leader>s? z=
     let g:rubycomplete_rails = 1
     let g:rubycomplete_classes_in_global = 1
     set tags+=$HOME/.vim/tags/ruby.ctags
+    set tags+=$HOME/.vim/tags/rails.ctags
    
     """"""""""""""""""""""""""""
     " Python  
@@ -342,10 +343,3 @@ map <leader>s? z=
     " HTML  
     """"""""""""""""""""""""""""
     autocmd FileType html,xhtml set ai sw=4 st=4 ts=4 et
-
-    """""""""""""""""""""""""""
-    " Markdown
-    """""""""""""""""""""""""""
-    au! BufRead,BufNewFile *.mkd setfiletype mkd
-    autocmd BufRead *.mkd set ai formatoptions=tcroqn2 comments=n:>
-
