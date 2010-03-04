@@ -129,7 +129,7 @@ set hlsearch
 set laststatus=2
 
 " Formatação do statusline
-set statusline=%<%f\ %h%m%r\ [%Y]\ [GIT:%{GitBranchInfoTokens()[0]}]%=%-10([line/total\ %l/%L,\ col\ %c%V]%)%=%-10(%)\ %P
+set statusline=%<%f\ %h%m%r\ [%Y]\ [GIT:%{fugitive#statusline()}]%=%-10([line/total\ %l/%L,\ col\ %c%V]%)%=%-10(%)\ %P
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -250,23 +250,10 @@ map <leader>s? z=
     map <F2> :NERDTreeToggle<cr>
 
     """"""""""""""""""""""""""""
-    " FuzzyFinder
-    """"""""""""""""""""""""""""
-    let g:proj_flags="imstg"
-    let g:fuzzy_ceiling=20000
-    let g:fuzzy_matching_limit=25
-    let g:fuzzy_ignore = "gems/*, log/* tmp/*"
-   
-    map <F3> :FuzzyFinderTextMate<cr>
-    map <leader>ffb :FuzzyFinderBuffer<cr>
-    map <leader>ff] :FuzzyFinderMruFile<cr>
-    map <leader>ffr :ruby finder.rescan!<cr> 
-
-    """"""""""""""""""""""""""""
     " Scratch 
     """"""""""""""""""""""""""""
     let g:scratch_file="~/.vim/scratch"
-    map <F6> :ToggleScratch<cr>
+    map <F5> :ToggleScratch<cr>
 
     """"""""""""""""""""""""""""
     " TagList 
@@ -278,12 +265,12 @@ map <leader>s? z=
     let Tlist_File_Fold_Auto_Close = 1 " Close folds for inactive files
     let Tlist_Sort_Type = "name"
     let Tlist_Show_Menu = 1
-    map <F5> :TlistToggle<cr>
+    map <F4> :TlistToggle<cr>
 
     """"""""""""""""""""""""""""
     " BufExplorer 
     """"""""""""""""""""""""""""
-    map <F4> :BufExplorer<cr>  
+    map <F3> :BufExplorer<cr>  
  
     """"""""""""""""""""""""""""
     " Gist
