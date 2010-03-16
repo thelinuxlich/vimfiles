@@ -56,6 +56,14 @@ function! s:warn(str)
   let v:warningmsg = a:str
 endfunction
 
+function! s:shellslash(path)
+  if exists('+shellslash') && !&shellslash
+    return s:gsub(a:path,'\\','/')
+  else
+    return a:path
+  endif
+endfunction
+
 function! s:add_methods(namespace, method_names) abort
   for name in a:method_names
     let s:{a:namespace}_prototype[name] = s:function('s:'.a:namespace.'_'.name)
@@ -92,10 +100,11 @@ let s:abstract_prototype = {}
 " Initialization {{{1
 
 function! s:ExtractGitDir(path) abort
-  if a:path =~? '^fugitive://.*//'
-    return matchstr(a:path,'fugitive://\zs.\{-\}\ze//')
+  let path = s:shellslash(a:path)
+  if path =~? '^fugitive://.*//'
+    return matchstr(path,'fugitive://\zs.\{-\}\ze//')
   endif
-  let fn = fnamemodify(a:path,':s?[\/]$??')
+  let fn = fnamemodify(path,':s?[\/]$??')
   let ofn = ""
   let nfn = fn
   while fn != ofn
@@ -266,6 +275,7 @@ function! s:repo_superglob(base) dict abort
     if !self.bare()
       let base = s:sub(a:base,'^/','')
       let matches = split(glob(self.tree(s:gsub(base,'/','*&').'*')),"\n")
+      call map(matches,'s:shellslash(v:val)')
       call map(matches,'v:val !~ "/$" && isdirectory(v:val) ? v:val."/" : v:val')
       call map(matches,'v:val[ strlen(self.tree())+(a:base !~ "^/") : -1 ]')
       let results += matches
@@ -295,7 +305,7 @@ call s:add_methods('repo',['dirglob','superglob'])
 
 function! s:repo_keywordprg() dict abort
   let args = ' --git-dir='.escape(self.dir(),"\\\"' ").' show'
-  if has("gui_running")
+  if has('gui_running') && !has('win32')
     return g:fugitive_git_executable . ' --no-pager' . args
   else
     return g:fugitive_git_executable . args
@@ -367,7 +377,7 @@ endfunction
 
 function! s:buffer_name() dict abort
   let bufname = bufname(self['#'])
-  return bufname == '' ? '' : fnamemodify(bufname,':p')
+  return s:shellslash(bufname == '' ? '' : fnamemodify(bufname,':p'))
 endfunction
 
 function! s:buffer_commit() dict abort
@@ -453,7 +463,7 @@ endfunction
 
 function! s:Git(bang,cmd) abort
   let git = s:repo().git_command()
-  if has('gui_running')
+  if has('gui_running') && !has('win32')
     let git .= ' --no-pager'
   endif
   call s:ExecuteInTree('!'.git.' '.a:cmd)
@@ -464,7 +474,7 @@ function! s:GitComplete(A,L,P) abort
   if !exists('s:exec_path')
     let s:exec_path = s:sub(system(g:fugitive_git_executable.' --exec-path'),'\n$','')
   endif
-  let cmds = map(split(glob(s:exec_path.'/git-*'),"\n"),'v:val[strlen(s:exec_path)+5 : -1]')
+  let cmds = map(split(glob(s:exec_path.'/git-*'),"\n"),'s:sub(v:val[strlen(s:exec_path)+5 : -1],"\\.exe$","")')
   if a:L =~ ' [[:alnum:]-]\+ '
     return s:repo().superglob(a:A)
   elseif a:A == ''
@@ -660,7 +670,7 @@ function! s:Commit(args) abort
       let error = get(readfile(errorfile,'',1),0,'!')
       if error =~# "'false'\\.$"
         let args = a:args
-        let args = s:gsub(args,'%(%(^| )-- )@<!%(^| )@<=%(-e|--edit|--interactive)%($| )','')
+        let args = s:gsub(args,'%(%(^| )-- )@<!%(^| )@<=%(-[se]|--edit|--interactive)%($| )','')
         let args = s:gsub(args,'%(%(^| )-- )@<!%(^| )@<=%(-F|--file|-m|--message)%(\s+|\=)%(''[^'']*''|"%(\\.|[^"])*"|\\.|\S)*','')
         let args = s:gsub(args,'%(^| )@<=[%#]%(:\w)*','\=expand(submatch(0))')
         let args = '-F '.s:shellesc(msgfile).' '.args
@@ -718,7 +728,7 @@ endfunction
 
 augroup fugitive_commit
   autocmd!
-  autocmd BufDelete *.git/COMMIT_EDITMSG execute s:sub(s:FinishCommit(), '^echoerr (.*)', 'echohl ErrorMsg|echo \1|echohl NONE')
+  autocmd VimLeavePre,BufDelete *.git/COMMIT_EDITMSG execute s:sub(s:FinishCommit(), '^echoerr (.*)', 'echohl ErrorMsg|echo \1|echohl NONE')
 augroup END
 
 " }}}1
@@ -1120,16 +1130,20 @@ augroup fugitive_blame
   autocmd BufReadPost *.fugitiveblame setfiletype fugitiveblame
   autocmd FileType fugitiveblame setlocal nomodeline | if exists('b:git_dir') | let &l:keywordprg = s:repo().keywordprg() | endif
   autocmd Syntax fugitiveblame call s:BlameSyntax()
-  autocmd User Fugitive if s:buffer().type('file', 'blob') | exe "command! -buffer -bar -bang -range=0 Gblame :execute s:Blame(<bang>0,<line1>,<line2>,<count>,<f-args>)" | endif
+  autocmd User Fugitive if s:buffer().type('file', 'blob') | exe "command! -buffer -bar -bang -range=0 -nargs=* Gblame :execute s:Blame(<bang>0,<line1>,<line2>,<count>,[<f-args>])" | endif
 augroup END
 
-function! s:Blame(bang,line1,line2,count) abort
+function! s:Blame(bang,line1,line2,count,args) abort
   try
     if s:buffer().path() == ''
       call s:throw('file or blob required')
     endif
+    if filter(copy(a:args),'v:val !~# "^\\%(--root\|--show-name\\|-\\=\\%([ltwfs]\\|[MC]\\d*\\)\\+\\)$"') != []
+      call s:throw('unsupported option')
+    endif
+    call map(a:args,'s:sub(v:val,"^\\ze[^-]","-")')
     let git_dir = s:repo().dir()
-    let cmd = ['--no-pager', 'blame', '--show-number']
+    let cmd = ['--no-pager', 'blame', '--show-number'] + a:args
     if s:buffer().commit() =~# '\D\|..'
       let cmd += [s:buffer().commit()]
     else
@@ -1145,10 +1159,11 @@ function! s:Blame(bang,line1,line2,count) abort
       if a:count
         execute 'write !'.substitute(basecmd,' blame ',' blame -L '.a:line1.','.a:line2.' ','g')
       else
-        let temp = tempname().'.fugitiveblame'
-        silent! exe '%write !'.basecmd.' > '.temp.' 2> '.temp
+        let error = tempname()
+        let temp = error.'.fugitiveblame'
+        silent! exe '%write !'.basecmd.' > '.temp.' 2> '.error
         if v:shell_error
-          call s:throw(join(readfile(temp),"\n"))
+          call s:throw(join(readfile(error),"\n"))
         endif
         let bufnr = bufnr('')
         let restore = 'call setbufvar('.bufnr.',"&scrollbind",0)'
@@ -1169,6 +1184,7 @@ function! s:Blame(bang,line1,line2,count) abort
         let b:fugitive_type = 'blame'
         let b:fugitive_blamed_bufnr = bufnr
         let b:fugitive_restore = restore
+        let b:fugitive_blame_arguments = join(a:args,' ')
         call s:Detect(expand('%:p'))
         execute top
         normal! zt
@@ -1199,11 +1215,12 @@ function! s:BlameJump(suffix) abort
   if commit =~# '^0\+$'
     let commit = ':0'
   endif
-  let lnum = matchstr(getline('.'),'\d\+\ze (')
-  let path = matchstr(getline('.'),'^\^\=\zs\x\+\s\+\zs.\{-\}\ze\s*\d\+ (')
+  let lnum = matchstr(getline('.'),'\d\+\ze\s\+[([:digit:]]')
+  let path = matchstr(getline('.'),'^\^\=\zs\x\+\s\+\zs.\{-\}\ze\s*\d\+ ')
   if path ==# ''
     let path = s:buffer(b:fugitive_blamed_bufnr).path()
   endif
+  let args = b:fugitive_blame_arguments
   let offset = line('.') - line('w0')
   let bufnr = bufnr('%')
   let winnr = bufwinnr(b:fugitive_blamed_bufnr)
@@ -1214,7 +1231,7 @@ function! s:BlameJump(suffix) abort
   if winnr > 0
     exe bufnr.'bdelete'
   endif
-  Gblame
+  execute 'Gblame '.args
   execute lnum
   let delta = line('.') - line('w0') - offset
   if delta > 0
@@ -1229,13 +1246,16 @@ endfunction
 function! s:BlameSyntax() abort
   let b:current_syntax = 'fugitiveblame'
   syn match FugitiveblameBoundary "^\^"
-  syn match FugitiveblameHash       "\%(^\^\=\)\@<=\x\{7,40\}\>" nextgroup=FugitiveblameAnnotation,fugitiveblameOriginalFile,FugitiveblameOriginalLineNumber skipwhite
+  syn match FugitiveblameBlank                      "^\s\+\s\@=" nextgroup=FugitiveblameAnnotation,fugitiveblameOriginalFile,FugitiveblameOriginalLineNumber skipwhite
+  syn match FugitiveblameHash       "\%(^\^\=\)\@<=\x\{7,40\}\>" nextgroup=FugitiveblameAnnotation,FugitiveblameOriginalLineNumber,fugitiveblameOriginalFile skipwhite
   syn match FugitiveblameUncommitted "\%(^\^\=\)\@<=0\{7,40\}\>" nextgroup=FugitiveblameAnnotation,FugitiveblameOriginalLineNumber,fugitiveblameOriginalFile skipwhite
   syn region FugitiveblameAnnotation matchgroup=FugitiveblameDelimiter start="(" end="\%( \d\+\)\@<=)" contained keepend oneline
   syn match FugitiveblameTime "[0-9:/+-][0-9:/+ -]*[0-9:/+-]\%( \+\d\+)\)\@=" contained containedin=FugitiveblameAnnotation
   syn match FugitiveblameLineNumber         " \@<=\d\+)\@=" contained containedin=FugitiveblameAnnotation
-  syn match FugitiveblameOriginalFile       " \%(\f\+\D\@<=\|\D\@=\f\+\)\%(\%(\s\+\d\+\)\= (\)\@=" contained nextgroup=FugitiveblameOriginalLineNumber,FugitiveblameAnnotation skipwhite
-  syn match FugitiveblameOriginalLineNumber " \@<=\d\+\%( (\)\@=" contained nextgroup=FugitiveblameAnnotation skipwhite
+  syn match FugitiveblameOriginalFile       " \%(\f\+\D\@<=\|\D\@=\f\+\)\%(\%(\s\+\d\+\)\=\s\%((\|\s*\d\+)\)\)\@=" contained nextgroup=FugitiveblameOriginalLineNumber,FugitiveblameAnnotation skipwhite
+  syn match FugitiveblameOriginalLineNumber " \@<=\d\+\%(\s(\)\@=" contained nextgroup=FugitiveblameAnnotation skipwhite
+  syn match FugitiveblameOriginalLineNumber " \@<=\d\+\%(\s\+\d\+)\)\@=" contained nextgroup=FugitiveblameShort skipwhite
+  syn match FugitiveblameShort              "\d\+)" contained contains=FugitiveblameLineNumber
   syn match FugitiveblameNotCommittedYet "(\@<=Not Committed Yet\>" contained containedin=FugitiveblameAnnotation
   hi def link FugitiveblameBoundary           Keyword
   hi def link FugitiveblameHash               Identifier
@@ -1244,6 +1264,7 @@ function! s:BlameSyntax() abort
   hi def link FugitiveblameLineNumber         Number
   hi def link FugitiveblameOriginalFile       String
   hi def link FugitiveblameOriginalLineNumber Float
+  hi def link FugitiveblameShort              FugitiveblameDelimiter
   hi def link FugitiveblameDelimiter          Delimiter
   hi def link FugitiveblameNotCommittedYet    Comment
 endfunction
@@ -1272,7 +1293,7 @@ function! s:ReplaceCmd(cmd,...) abort
   finally
     let &autowrite = aw
     if exists('old_index')
-      let $GIT_INDEX_FILE = 'old_index'
+      let $GIT_INDEX_FILE = old_index
     endif
   endtry
   silent exe 'keepalt file '.tmp

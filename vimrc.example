@@ -65,6 +65,8 @@ endif
 hi Pmenu guibg=#333333
 hi PmenuSel guibg=#555555 guifg=#ffffff
 
+"Usa Ack no lugar do grep
+set grepprg=ack
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
