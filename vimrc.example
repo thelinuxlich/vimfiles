@@ -286,6 +286,10 @@ map <leader>s? z=
     """"""""""""""""""""""""""""
     let g:sparkup = "~/.vim/bin/sparkup"
  
+    """"""""""""""""""""""""""""
+    " snipMate
+    """"""""""""""""""""""""""""
+    source ~/.vim/snippets/support_functions.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype generic
