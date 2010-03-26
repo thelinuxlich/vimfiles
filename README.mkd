@@ -37,10 +37,25 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 
 ### Atalhos
 
+* F1                      Help do Vim
 * F2                      Abre/Fecha o File Browser
 * F3                      Class Browser (TagList)
 * F4                      Buffer Explorer
 * F5                      Scratch ("Arquivo temporario", tudo nele sera apagado quando fecha o vim)
+* F6
+* F7                      Define o corretor gramatical para o português do brasil
+* F8                      Define o corretor gramatical para inglês
+* F9
+* F10
+* F11
+* F12                     Salva tudo e sai (Mode: insert, normal)
+
+* ,w                      Salva
+* ,x                      Salva e Sai
+* ,t[2|4]                 Define tamanho da indentação para 2 ou 4
+* ,s                      Recarrega o vimrc 
+* ,e                      Abre o vimrc
+* ,r                      Recarrega o Arquivo Atual
 
 ## Colaboradores
 

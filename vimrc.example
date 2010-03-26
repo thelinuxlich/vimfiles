@@ -23,6 +23,7 @@ let g:mapleader = ","
 
 "Atalho para salvar rapido
 nmap <leader>w :w!<cr>
+nmap <leader>r :e!<cr>
 nmap <leader>f :find<cr>
 
 "Recarregar o .vimrc
@@ -122,8 +123,8 @@ set mat=2
 
 "Highlight search things
 set hlsearch
-
 set scrolloff=3
+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Statusline
@@ -240,11 +241,19 @@ set tw=500
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <F7> :setlocal spell spelllang=pt<CR>
+nmap <F8> :setlocal spell spelllang=en<CR>
 map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shotcut to get out
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+imap <F12> <esc>:wqa!<cr>
+ map <F12> :wqa!<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin configuration
