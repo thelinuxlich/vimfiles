@@ -123,6 +123,7 @@ set mat=2
 "Highlight search things
 set hlsearch
 
+set scrolloff=3
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Statusline
@@ -162,8 +163,8 @@ function! FXs(pattern)
   execute "args `find . -name '*.sql' -prune -o -name '*.sqlite3' -prune -o -name '*.csv' -prune -o -name '*.jpg' -prune -o -name '*.png' -prune -o -name '*.gif' -prune -o -name '*.jpeg' -prune -o -path './log' -prune -o -path '*/.git' -prune -o -path './vendor' -prune -o -path './tmp' -prune -o -path '*/.svn' -prune -o -type f -print`"
   execute "argdo %s" . a:pattern . "gec | update"
 endfunction
-
 command! -nargs=1 Xs call FXs(<f-args>)
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Movendo-se e tabs
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -254,6 +255,14 @@ map <leader>s? z=
     let g:rails_default_file='config/database.yml'
 
     """"""""""""""""""""""""""""
+    " gist.vim
+    """"""""""""""""""""""""""""
+    let g:gist_clip_command = 'xclip -selection clipboard'
+    let g:gist_detect_filetype = 1
+    let g:gist_open_browser_after_post = 1
+    let g:gist_browser_command = 'firefox %URL%'
+
+    """"""""""""""""""""""""""""
     " NERDTree
     """"""""""""""""""""""""""""
     map <F2> :NERDTreeToggle<cr>
@@ -275,6 +284,9 @@ map <leader>s? z=
     let Tlist_Sort_Type = "name"
     let Tlist_Show_Menu = 1
     map <F4> :TlistToggle<cr>
+    set tags+="tags"
+    set tags+="tmp/tags"
+
 
     """"""""""""""""""""""""""""
     " BufExplorer 
