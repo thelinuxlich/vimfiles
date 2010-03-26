@@ -56,7 +56,7 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 * ,s                      Recarrega o vimrc 
 * ,e                      Abre o vimrc
 * ,r                      Recarrega o Arquivo Atual
-
+* :Xs /antigo/novo/       Localiza e Substitui ocorrência em todo o projeto(com confirmação)
 ## Colaboradores
 
 * [Ramon Soares](http://github.com/ramon)
