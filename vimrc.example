@@ -23,6 +23,7 @@ let g:mapleader = ","
 
 "Atalho para salvar rapido
 nmap <leader>w :w!<cr>
+nmap <leader>x :x<cr>
 nmap <leader>r :e!<cr>
 nmap <leader>f :find<cr>
 
