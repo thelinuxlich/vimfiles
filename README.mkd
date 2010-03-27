@@ -33,7 +33,7 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 * tpope / vim-haml              (Last Update: 03/03/2010)
 * tpope / vim-repeat            (Last Update: 03/03/2010)
 * tpope / vim-surround          (Last Update: 03/03/2010)
-
+* c9s   / hypergit              (Last Update: 26/03/2010)
 
 ### Atalhos
 
@@ -42,7 +42,7 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 * F3                      Class Browser (TagList)
 * F4                      Buffer Explorer
 * F5                      Scratch ("Arquivo temporario", tudo nele sera apagado quando fecha o vim)
-* F6
+* F6                      Git Tree      
 * F7                      Define o corretor gramatical para o português do brasil
 * F8                      Define o corretor gramatical para inglês
 * F9
@@ -62,4 +62,4 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 * [Ramon Soares](http://github.com/ramon)
 * [Pedro Faria](http://github.com/pedrofaria)
 
-Se quizer colaborar colabore, se não foda-se.
+Se quiser colaborar colabore, se não foda-se.
