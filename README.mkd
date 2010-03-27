@@ -53,6 +53,7 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 * ,e                      Abre o vimrc
 * ,r                      Recarrega o Arquivo Atual
 * :Xs /antigo/novo/       Localiza e Substitui ocorrência em todo o projeto(com confirmação)
+* JJ                      Abre o site da API do jQuery numa nova aba do Firefox com a descrição da função jQuery onde estava o cursor.
 ## Colaboradores
 
 * [Ramon Soares](http://github.com/ramon)
