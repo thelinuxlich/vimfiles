@@ -19,7 +19,7 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 * Ruby (On Rails)
 * Erlang
 * Python (Django)
-* PHP (Precisa ser melhorado. Alguem quer fazer isso?
+* PHP (Precisa ser melhorado. Alguem quer fazer isso?)
 
 ### Plugins Utilizados
 
@@ -58,5 +58,6 @@ Aqui esta meu trabalho arduo de fazer o fuderoso vim mais fuderoso ainda.
 
 * [Ramon Soares](http://github.com/ramon)
 * [Pedro Faria](http://github.com/pedrofaria)
+* [Alisson Cavalcante Agiani](http://github.com/thelinuxlich)
 
 Se quiser colaborar colabore, se não foda-se.
