@@ -16,6 +16,7 @@ set autoread
 
 "O mouse deve ficar habilitado todo o tempo
 set mouse=a
+set mousemodel=popup
 
 "Definição do mapleader
 let mapleader = ","
@@ -69,7 +70,6 @@ hi PmenuSel guibg=#555555 guifg=#ffffff
 
 "Usa Ack no lugar do grep
 set grepprg=ack
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Formato de arquivos
@@ -126,7 +126,6 @@ set mat=2
 set hlsearch
 set scrolloff=3
 
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Statusline
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -155,6 +154,11 @@ function! VisualSearch(direction) range
   let @" = l:saved_reg
 endfunction
 
+"Basically you press * or # to search for the current selection !! Really useful
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
+
+" Extended substitution on the project(ignores a lot of files)
 function! FXs(pattern)
   execute "Rcd"
   execute "args `find . -name '*.sql' -prune -o -name '*.sqlite3' -prune -o -name '*.csv' -prune -o -name '*.jpg' -prune -o -name '*.png' -prune -o -name '*.gif' -prune -o -name '*.jpeg' -prune -o -path './log' -prune -o -path '*/.git' -prune -o -path './vendor' -prune -o -path './tmp' -prune -o -path '*/.svn' -prune -o -type f -print`"
@@ -162,11 +166,6 @@ function! FXs(pattern)
 endfunction
 
 command! -nargs=1 Xs call FXs(<f-args>)
-
-"Basically you press * or # to search for the current selection !! Really useful
-vnoremap <silent> * :call VisualSearch('f')<CR>
-vnoremap <silent> # :call VisualSearch('b')<CR>
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""
 " Movendo-se e tabs
@@ -320,7 +319,9 @@ imap <F12> <esc>:wqa!<cr>
     " Sparkup
     """"""""""""""""""""""""""""
     let g:sparkup = "~/.vim/bin/sparkup"
- 
+    "let g:sparkupExecuteMapping = '<m-e>'
+    "let g:sparkupNextMapping = '<m-n>'
+    
     """"""""""""""""""""""""""""
     " snipMate
     """"""""""""""""""""""""""""
