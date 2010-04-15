@@ -10,7 +10,6 @@ set history=400
 "Ativar filetype plugin
 filetype plugin on
 filetype indent on
-
 "Habilita auto leiturar para o arquivo for modificado fora do vim
 set autoread
 
@@ -244,6 +243,7 @@ set tw=500
 " Git Tree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F6> :ToggleGitMenu<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spell checking
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -253,7 +253,6 @@ map <leader>sn ]s
 map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Shotcut to get out
