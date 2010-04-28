@@ -4,17 +4,14 @@ let g:full_name = "insert you name here"
 " default settings
 let g:use_ack = 1                                   " Use ack instead of grep
 let g:use_expandtab = 1                             " Use space instead of tab
-let g:tab_width = 2                                 " Witdh of tab/space
 
 let leader_key = ","
-let g:encoding = "utf8"
 let g:browser = "firefox"                           " command or full path
 let g:clip_command = "xclip -selection clipboard"   " Linux
 
 " Vim style settings
-let g:theme = "vividchalk"                          " Set you default color schema
-let g:font = "Monaco:h11"
-
+colorscheme vividchalk                              " Set you default color schema
+set gfn = "Monaco 11"                               " Set you font style  
 
 " Github integration
 let g:github_user = "insert here you github user name"

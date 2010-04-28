@@ -37,3 +37,6 @@
 [submodule "bundle/hyperhit"]
 	path = bundle/hyperhit
 	url = git://github.com/c9s/hypergit.vim.git
+[submodule "snippets"]
+	path = snippets
+	url = git://github.com/ramon/snippets.git
