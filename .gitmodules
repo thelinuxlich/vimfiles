@@ -40,3 +40,9 @@
 [submodule "snippets"]
 	path = snippets
 	url = git://github.com/ramon/snippets.git
+[submodule "bundle/vim-git"]
+	path = bundle/vim-git
+	url = git://github.com/tpope/vim-git.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = git://github.com/msanders/snipmate.vim.git
