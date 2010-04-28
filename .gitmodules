@@ -34,8 +34,8 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundle/hyperhit"]
-	path = bundle/hyperhit
+[submodule "bundle/hypergit"]
+	path = bundle/hypergit
 	url = git://github.com/c9s/hypergit.vim.git
 [submodule "snippets"]
 	path = snippets
