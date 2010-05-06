@@ -7,12 +7,8 @@ let g:gist_detect_filetype = 1
 let g:gist_open_browser_after_post = 1
 let g:gist_browser_command = 'firefox %URL%'
 
-" NERDTree
-map <F2> :NERDTreeToggle<cr>
-
 " Scratch 
 let g:scratch_file="~/.vim/scratch"
-map <F5> :ToggleScratch<cr>
 
 " TagList 
 let Tlist_Ctags_Cmd='/usr/bin/ctags' " point taglist to ctags
@@ -26,9 +22,6 @@ map <F4> :TlistToggle<cr>
 set tags+="tags"
 set tags+="tmp/tags"
 
-" BufExplorer 
-map <F3> :BufExplorer<cr>  
-
 " Sparkup
 let g:sparkup = "~/.vim/bin/sparkup"
 "let g:sparkupExecuteMapping = '<m-e>'
@@ -36,3 +29,4 @@ let g:sparkup = "~/.vim/bin/sparkup"
 
 " snipMate
 source ~/.vim/snippets/support_functions.vim
+

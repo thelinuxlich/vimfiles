@@ -88,6 +88,14 @@ set background=dark
 set laststatus=2                                                  " Always show status line.
 set statusline=%<%f\ %h%m%r\ [%Y]\ [GIT:%{fugitive#statusline()}]%=%-10([line/total\ %l/%L,\ col\ %c%V]%)%=%-10(%)\ %P
 
+set so=7
+set cmdheight=2
+set lz
+set whichwrap+=<,>,h,l
+set hlsearch
+set lbr
+set tw=500
+
 let mapleader=leader_key
 let g:mapleader=leader_key
 

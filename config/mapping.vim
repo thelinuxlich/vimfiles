@@ -34,3 +34,8 @@ map <leader>sp [s
 map <leader>sa zg
 map <leader>s? z=
 
+map <F2> :NERDTreeToggle<cr>
+map <F3> :BufExplorer<cr>
+map <F5> :ToggleScratch<cr>
+nmap <F6> :ToggleGitMenu<CR>
+imap <F6> :ToogleGitMenu<CR>
