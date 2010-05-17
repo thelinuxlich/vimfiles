@@ -75,7 +75,7 @@ set smartindent
 set title                                                           " set window name as titlestring
 
 set wildmenu                                                        " Enable ctrl-n and ctrl-p to scroll thru matches
-set wildmode=list:longest                                           " Make cmdline tab completion similar to bash
+set wildmode=full                                                   " Make cmdline tab completion similar to bash
 set wildignore+=*.o,*~,*.swp,*.pyc,*.pyo,*.gif                      " Stuff to ignore when tab completing
 set wildignore+=*.dll,*.obj,*.bak,*.jpg,*.png                       " Stuff to ignore when tab completing
 
