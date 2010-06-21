@@ -23,9 +23,7 @@ set tags+="tags"
 set tags+="tmp/tags"
 
 " Sparkup
-let g:sparkup = "~/.vim/bin/sparkup"
-"let g:sparkupExecuteMapping = '<m-e>'
-"let g:sparkupNextMapping = '<m-n>'
+let g:sparkup = "~/.vim/bundle/sparkup/bin/sparkup"
 
 " snipMate
 source ~/.vim/snippets/support_functions.vim
