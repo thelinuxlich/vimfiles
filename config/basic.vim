@@ -81,12 +81,13 @@ set wildignore+=*.dll,*.obj,*.bak,*.jpg,*.png                       " Stuff to i
 
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
-set guioptions-=T
+set guioptions-=Tm
 set guioptions-=m
+set guioptions-=L
 set guioptions-=l
+set guioptions-=R
 set guioptions-=r
 set guioptions-=b
-set guioptions
 set background=dark
 
 set laststatus=2                                                  " Always show status line.
