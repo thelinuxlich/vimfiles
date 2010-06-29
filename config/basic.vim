@@ -83,6 +83,10 @@ set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
 set guioptions-=T
 set guioptions-=m
+set guioptions-=l
+set guioptions-=r
+set guioptions-=b
+set guioptions
 set background=dark
 
 set laststatus=2                                                  " Always show status line.
