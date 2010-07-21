@@ -103,6 +103,7 @@ set tw=500
 
 let mapleader=leader_key
 let g:mapleader=leader_key
+let g:syntastic_enable_signs=1
 
 syntax enable
 filetype plugin on
