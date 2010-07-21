@@ -34,9 +34,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "bundle/hypergit"]
-	path = bundle/hypergit
-	url = git://github.com/c9s/hypergit.vim.git
 [submodule "snippets"]
 	path = snippets
 	url = git://github.com/ramon/snippets.git
@@ -49,3 +46,18 @@
 [submodule "bundle/zencoding"]
 	path = bundle/zencoding
 	url = http://github.com/mattn/zencoding-vim.git
+[submodule "bundle/hypergit"]
+	path = bundle/hypergit
+	url = git://github.com/c9s/hypergit.vim.git
+[submodule "bundle/jquerysearch"]
+	path = bundle/jquerysearch
+	url = git://github.com/thelinuxlich/jquerysearch.vim.git
+[submodule "bundle/coffeescript"]
+	path = bundle/coffeescript
+	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "bundle/scss-syntax"]
+	path = bundle/scss-syntax
+	url = git://github.com/cakebaker/scss-syntax.vim.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
