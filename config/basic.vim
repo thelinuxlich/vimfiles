@@ -81,7 +81,7 @@ set wildignore+=*.dll,*.obj,*.bak,*.jpg,*.png                       " Stuff to i
 
 set sessionoptions=blank,buffers,curdir,folds,help,resize,tabpages,winsize
 
-set guioptions-=Tm
+set guioptions-=T
 set guioptions-=m
 set guioptions-=L
 set guioptions-=l
