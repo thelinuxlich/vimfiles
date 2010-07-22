@@ -7,8 +7,7 @@ rm -rf ~/.vim && rm ~/.vimrc
 git clone git://github.com/ramon/vimfiles.git ~/.vim
 
 == Install the submodules
-git submodule init
-git submodule install
+git submodule init && git submodule install
 
 == Symlink the VIM configuration
 ln -s ~/.vim/vimrc ~/.vimrc
