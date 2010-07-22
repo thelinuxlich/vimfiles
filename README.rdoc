@@ -1,0 +1,19 @@
+= Installation instructions
+
+* Remove your old VIM configuration(because it probably sucks):
+** rm -rf ~/.vim && rm ~/.vimrc
+
+* Clone the project into your VIM directory
+** git clone git://github.com/ramon/vimfiles.git ~/.vim
+
+* Install the submodules
+** git submodule init
+** git submodule install
+
+* Symlink the VIM configuration
+** ln -s ~/.vim/vimrc ~/.vimrc
+
+* Copy the config.vim sample
+** cp ~/.vim/config.vim.example ~/.vim/config.vim
+
+Have fun! (More information soon)
