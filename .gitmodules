@@ -46,9 +46,6 @@
 [submodule "bundle/zencoding"]
 	path = bundle/zencoding
 	url = http://github.com/mattn/zencoding-vim.git
-[submodule "bundle/hypergit"]
-	path = bundle/hypergit
-	url = git://github.com/c9s/hypergit.vim.git
 [submodule "bundle/jquerysearch"]
 	path = bundle/jquerysearch
 	url = git://github.com/thelinuxlich/jquerysearch.vim.git
