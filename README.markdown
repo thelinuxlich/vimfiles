@@ -23,9 +23,9 @@
 
 # More Details
   
-  Wiki: [wiki]
-  IRC: [irc]
-  Issues: [issues]
+Wiki: [wiki]
+IRC: [irc]
+Issues: [issues]
 
 
 # Maintainers
@@ -34,6 +34,6 @@
 * Alisson Cavalcante Agiani - http://github.com/thelinuxlich
 
 
-[wiki] http://wiki.github.com/ramon/vimfiles/
-[irc] irc://irc.freenode.org/##ruby-br "Freenode@##ruby-br"
-[issues] http://github.com/ramon/vimfiles/issues
+[wiki]: http://wiki.github.com/ramon/vimfiles/
+[irc]: irc://irc.freenode.org/##ruby-br "Freenode@##ruby-br"
+[issues]: http://github.com/ramon/vimfiles/issues
