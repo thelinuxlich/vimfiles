@@ -17,3 +17,9 @@ set gfn = "Monaco 11"                               " Set you font style
 let g:github_user = "insert here you github user name"
 let g:github_token = ""
 
+" Syntatic Settings
+" Abrir automaticamente a lista de erros e fechá-la quando o erro for corrigido
+let g:syntastic_auto_loc_list = 1
+
+
+

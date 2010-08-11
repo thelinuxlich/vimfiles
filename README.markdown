@@ -10,7 +10,7 @@
 
 3.  Install the submodules
 
-        git submodule init && git submodule update
+        git submodule update --init
 
 4.  Symlink the VIM configuration
 

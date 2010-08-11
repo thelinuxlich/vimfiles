@@ -104,8 +104,6 @@ set tw=500
 let mapleader=leader_key
 let g:mapleader=leader_key
 let g:syntastic_enable_signs=1
-" Abrir automaticamente a lista de erros e fechá-la quando o erro for corrigido
-let g:syntastic_auto_loc_list=1
 
 syntax enable
 filetype plugin on
