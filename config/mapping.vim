@@ -37,3 +37,9 @@ map <leader>s? z=
 map <F2> :NERDTreeToggle<cr>
 map <F3> :BufExplorer<cr>
 map <F5> :ToggleScratch<cr>
+
+" Pesquisa de API
+map RB :call OpenRubyDoc(expand('<cword>'))<CR>
+map RR :call OpenRailsDoc(expand('<cword>'))<CR>
+map RS :call OpenRspecDoc(expand('<cword>'))<CR>
+map JJ :call OpenJqueryDoc(expand('<cword>'))<CR>
