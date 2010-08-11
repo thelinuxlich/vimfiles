@@ -105,10 +105,6 @@ let mapleader=leader_key
 let g:mapleader=leader_key
 let g:syntastic_enable_signs=1
 
-" variável necessária para busca no Apidock e jQuery API
-let g:browser = 'firefox -new-tab '
-" No OSX - let g:browser = 'open -a /Applications/Firefox.app'
-
 syntax enable
 filetype plugin on
 filetype indent on
