@@ -55,3 +55,12 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = git://github.com/scrooloose/syntastic.git
+[submodule "bundle/html5"]
+	path = bundle/html5
+	url = git://github.com/vim-scripts/HTML5-Syntax-File.git
+[submodule "bundle/tComment"]
+	path = bundle/tComment
+	url = git://github.com/vim-scripts/tComment.git
+[submodule "bundle/ToggleLineNumberMode"]
+	path = bundle/ToggleLineNumberMode
+	url = git://github.com/vim-scripts/ToggleLineNumberMode.git
