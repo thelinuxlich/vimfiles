@@ -61,6 +61,3 @@
 [submodule "bundle/tComment"]
 	path = bundle/tComment
 	url = git://github.com/vim-scripts/tComment.git
-[submodule "bundle/ToggleLineNumberMode"]
-	path = bundle/ToggleLineNumberMode
-	url = git://github.com/vim-scripts/ToggleLineNumberMode.git
