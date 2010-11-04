@@ -58,3 +58,6 @@
 [submodule "bundle/html5"]
 	path = bundle/html5
 	url = git://github.com/vim-scripts/html5.vim.git
+[submodule "bundle/tComment"]
+	path = bundle/tComment
+	url = git://github.com/vim-scripts/tComment.git
