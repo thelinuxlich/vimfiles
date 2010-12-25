@@ -32,6 +32,7 @@ Issues: [issues]
 
 * Ramon Soares - http://github.com/ramon
 * Alisson Cavalcante Agiani - http://github.com/thelinuxlich
+* Leandro Pincini - http://github.com/redpill
 
 
 [wiki]: http://wiki.github.com/ramon/vimfiles/
