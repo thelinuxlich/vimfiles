@@ -40,9 +40,6 @@
 [submodule "bundle/vim-git"]
 	path = bundle/vim-git
 	url = git://github.com/tpope/vim-git.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = git://github.com/redpill/snipmate.vim.git
 [submodule "bundle/zencoding"]
 	path = bundle/zencoding
 	url = http://github.com/mattn/zencoding-vim.git
@@ -61,3 +58,6 @@
 [submodule "bundle/tComment"]
 	path = bundle/tComment
 	url = git://github.com/vim-scripts/tComment.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = git@github.com:redpill/snipmate.vim.git
