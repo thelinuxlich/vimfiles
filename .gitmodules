@@ -55,9 +55,9 @@
 [submodule "bundle/html5"]
 	path = bundle/html5
 	url = git://github.com/vim-scripts/html5.vim.git
-[submodule "bundle/tComment"]
-	path = bundle/tComment
-	url = git://github.com/vim-scripts/tComment.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git@github.com:redpill/snipmate.vim.git
+[submodule "bundle/tComment"]
+	path = bundle/tComment
+	url = git://github.com/vim-scripts/tComment.git
